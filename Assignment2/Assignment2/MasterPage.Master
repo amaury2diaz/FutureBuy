@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Assignment2.MasterPage" EnableTheming="true"%>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet"
+        href="App_Themes/General/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="~/App_Themes/General/mystyles.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <div class="page-header">
+            <img src="images/logo.png" style="float: left; width: 150px; height: 80px" />
+            <img src="images/logo.png" style="float: right; width: 150px; height: 80px" />
+            <h1>Awful Domino 2 Store</h1>
+            <h3 id="currentPage" runat="server"></h3>
+            <span class="breadcrumb">
+                <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+                </asp:SiteMapPath>
+            </span>
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#collapsemenu"
+                        aria-expanded="false">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span
+                            class="icon-bar"></span>
+                    </button>
+                    <a href="Default.aspx" class="navbar-brand">AD2</a>
+                </div>
+                <div class="collapse navbar-collapse" id="collapsemenu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href ="~/Cart.aspx" id="cart" runat="server" visible ="false">Cart</a></li>
+                        <li><a href="~/Admin/Default.aspx" id="welcomeAdmin" runat="server" visible="false">Welcome Admin</a></li>
+
+                        <li><a id="userID" runat="server" href="#"
+                            class="dropdown-toggle" data-toggle="dropdown"
+                            role="button" aria-haspopup="true" aria-expanded="false">User<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a id="loginOrLogout" runat="server" href="Login.aspx">Login</a></li>
+                                <li><asp:Button ID="buttonlogout" runat="server" Text="Logout" Visible="false" CausesValidation="false" OnClick="buttonlogout_Click" /></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="appContent">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div  class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <div class="navbar-text pull-left">
+                    <p>&#174 2016 AD2</p>
+            <p>Name: Amaury Diaz Diaz</p>
+            <p>Student Number: 040738985</p>
+            <p>E-mail: diaz0064@algonquinlive.com</p>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

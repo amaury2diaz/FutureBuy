@@ -1,0 +1,147 @@
+﻿body {
+    background-color: white;
+    position: relative;
+}
+
+.navbar-default {
+    background-color: #FEA1FF;
+    border: none;
+    margin-top: 0px;
+}
+
+.btn-default {
+    background-color: #B005B2;
+    color: white;
+    border-color: white;
+}
+
+.page-header {
+    background-color: #B005B2;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+    width: 100%;
+    color: white;
+    font-size: 25px;
+}
+
+.breadcrumb {
+    background-color: #B005B2;
+    padding: 0px;
+    color: white;
+    font-size: 20px;
+    margin-right: 100%;
+}
+
+#menu {
+    margin-top: 25px;
+    font: menu;
+    height: 100%;
+    float: left;
+}
+
+#menu td {
+    border : none;
+}
+#menu th{
+    border : none;
+}
+
+#menu table {
+    border : none;
+}
+
+#mydiv {
+    border: 1px solid #ccc;
+    margin-top: 0px;
+    margin-bottom: 200px;
+    background-color: #CDFFFF;
+    border-radius: 25px;
+}
+
+
+#userID {
+    background-color: #B005B2;
+    color: white;
+}
+
+#date {
+    margin-left: 80%;
+}
+
+#title {
+    font-size: 25px;
+    color:purple;
+}
+
+#bioContainer {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#textContent {
+    margin-bottom: 200px;
+}
+loginOrLogout{
+    color:white;
+}
+registerOrEdit{
+    color:white;
+}
+
+#footer {
+    margin-top: 100px;
+}
+
+.paragraph {
+    font-size: 20px;
+}
+
+.customTest {
+    color: black;
+}
+
+.appContent {
+    margin-left: 250px;
+    margin-bottom: 200px;
+}
+
+.gridview {
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: 0px;
+    font-family: Calibri;
+    color: #474747;
+}
+
+    .gridview td {
+        padding: 2px;
+        border: 0px;
+    }
+
+    .gridview .alternate {
+        background: #FEA1FF repeat-x top;
+    }
+
+    .gridv {
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: solid;
+    font-family: Calibri;
+    color: #474747;
+}
+
+    .gridv td {
+        padding: 2px;
+        border: solid;
+    }
+
+    .gridv .alt {
+        background: #FEA1FF repeat-x top;
+    }
+
+.dropdown-menu{
+    background-color:#FEA1FF;
+    color:white;
+}

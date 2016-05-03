@@ -1,0 +1,5 @@
+CREATE TABLE Bad_Words
+(
+BadWordId int IDENTITY PRIMARY KEY,
+Word VARCHAR(50) NOT NULL
+);

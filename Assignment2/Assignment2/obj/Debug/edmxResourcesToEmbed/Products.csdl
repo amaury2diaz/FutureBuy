@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Assign2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bad_Words">
+    <Key>
+      <PropertyRef Name="BadWordId" />
+    </Key>
+    <Property Name="BadWordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Word" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Published" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Product_Id" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Comments__Produc__3A81B327" FromRole="Comments" ToRole="Products" />
+    <Property Name="FName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Credit_Cards">
+    <Key>
+      <PropertyRef Name="CreditId" />
+    </Key>
+    <Property Name="CreditId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserMail" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ShortDescription" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LongDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IsOnSale" Type="Boolean" Nullable="false" />
+    <Property Name="ImageName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__Produc__3A81B327" FromRole="Products" ToRole="Comments" />
+    <NavigationProperty Name="Users_Have_Products" Relationship="Assign2Model.FK__Users_Hav__Produ__4CA06362" FromRole="Product" ToRole="Users_Have_Products" />
+  </EntityType>
+  <Association Name="FK__Comments__Produc__3A81B327">
+    <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Assign2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bad_Words" EntityType="Self.Bad_Words" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Credit_Cards" EntityType="Self.Credit_Cards" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <AssociationSet Name="FK__Comments__Produc__3A81B327" Association="Self.FK__Comments__Produc__3A81B327">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="Assign2Model.User" />
+    <EntitySet Name="Users_Have_Products" EntityType="Assign2Model.Users_Have_Products" />
+    <AssociationSet Name="FK__Users_Hav__Produ__4CA06362" Association="Assign2Model.FK__Users_Hav__Produ__4CA06362">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Users_Have_Products" EntitySet="Users_Have_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users_Hav__User___4BAC3F29" Association="Assign2Model.FK__Users_Hav__User___4BAC3F29">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Users_Have_Products" EntitySet="Users_Have_Products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Admin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users_Have_Products" Relationship="Assign2Model.FK__Users_Hav__User___4BAC3F29" FromRole="User" ToRole="Users_Have_Products" />
+  </EntityType>
+  <EntityType Name="Users_Have_Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" />
+    <Property Name="Product_Id" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Assign2Model.FK__Users_Hav__Produ__4CA06362" FromRole="Users_Have_Products" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="Assign2Model.FK__Users_Hav__User___4BAC3F29" FromRole="Users_Have_Products" ToRole="User" />
+    <Property Name="amount" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__Users_Hav__Produ__4CA06362">
+    <End Type="Assign2Model.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="Assign2Model.Users_Have_Products" Role="Users_Have_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Users_Have_Products">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users_Hav__User___4BAC3F29">
+    <End Type="Assign2Model.User" Role="User" Multiplicity="0..1" />
+    <End Type="Assign2Model.Users_Have_Products" Role="Users_Have_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users_Have_Products">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

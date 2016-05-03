@@ -1,0 +1,8 @@
+CREATE TABLE Credit_Cards
+(
+CreditId int IDENTITY PRIMARY KEY,
+Name VARCHAR(255) NOT NULL,
+Number int NOT NULL,
+ExpiryDate DATE NOT NULL,
+UserMail VARCHAR(128) NOT NULL
+);

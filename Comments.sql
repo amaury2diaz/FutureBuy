@@ -1,0 +1,7 @@
+CREATE TABLE Comments
+(
+Id int IDENTITY PRIMARY KEY,
+Content VARCHAR(MAX) NOT NULL,
+Published DATETIME NOT NULL,
+[Product_Id] int FOREIGN KEY REFERENCES Products(ProductId)
+);

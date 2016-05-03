@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d48e114754f341b6ba812d5aeb23af2d" Name="Diagram1">
+        <EntityTypeShape EntityType="Assign2Model.Bad_Words" Width="1.5" PointX="2.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Assign2Model.Category" Width="1.5" PointX="4.375" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Assign2Model.Comment" Width="1.5" PointX="7.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Assign2Model.Credit_Cards" Width="1.5" PointX="6.375" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Assign2Model.Product" Width="1.5" PointX="4.875" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Assign2Model.FK__Comments__Produc__3A81B327" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Assign2Model.User" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Assign2Model.Users_Have_Products" Width="1.5" PointX="2.875" PointY="1.25" />
+        <AssociationConnector Association="Assign2Model.FK__Users_Hav__Produ__4CA06362" />
+        <AssociationConnector Association="Assign2Model.FK__Users_Hav__User___4BAC3F29" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
